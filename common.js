@@ -26,6 +26,8 @@ function vecSum(Q, R) {
 
 }
 
+const SPRING_WIDTH = 20;
+
 function drawSpring(x0, y0, x1, y1) {
     const l = Math.sqrt(Math.pow(x1 - x0, 2) + Math.pow(y1 - y0, 2));
     function interpLine(s, d) {
@@ -37,9 +39,9 @@ function drawSpring(x0, y0, x1, y1) {
     }
     ctx.beginPath();
     ctx.moveTo(x0, y0);
-    const s0 = 1.5 * POINT_RADIUS;
+    const s0 = 1.5 * SPRING_WIDTH;
     interpLine(s0, 0);
-    let d = POINT_RADIUS;
+    let d = SPRING_WIDTH;
     const n = 7;
     for(let i = 0; i <= n; i++) {
         d = -d;
@@ -47,5 +49,20 @@ function drawSpring(x0, y0, x1, y1) {
     }
     interpLine(l - s0, 0);
     interpLine(l, 0);
+    ctx.stroke();
+}
+
+function drawArrow(x0, y0, x1, y1) {
+    const l = Math.sqrt(Math.pow(x1 - x0, 2) + Math.pow(y1 - y0, 2));
+    const dx = (x1 - x0) / l;
+    const dy = (y1 - y0) / l;
+    const ox = -(y1 - y0) / l;
+    const oy = (x1 - x0) / l;
+    ctx.beginPath();
+    ctx.moveTo(x0, y0);
+    ctx.lineTo(x1, y1);
+    ctx.moveTo(x1 - (dx - ox) * SPRING_WIDTH, y1 - (dy - oy) * SPRING_WIDTH);
+    ctx.lineTo(x1, y1);
+    ctx.lineTo(x1 - (dx + ox) * SPRING_WIDTH, y1 - (dy + oy) * SPRING_WIDTH);
     ctx.stroke();
 }
