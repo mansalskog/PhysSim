@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PhysSim | Lagranges ekvationer</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="common.js"></script>
+        <script src="lagranges.js"></script>
+    </head>
+    <body>
+        <p>
+            <canvas id="canvas" width="500" height="500"></canvas>
+        </p>
+        <p>
+            <div>
+                <label for="springConst">Fjäderkonstant [N/m]</label>
+                <input id="springConst" type="number" step="0.5" value="3">
+            </div>
+            <div>
+                <label for="springLength">Fjäderns längd [m]</label>
+                <input id="springLength" type="number" step="0.5" value="0.5">
+            </div>
+            <div>
+                <label for="mass1">Röd massa [kg]</label>
+                <input id="mass1" type="number" step="0.5" value="3">
+            </div>
+            <div>
+                <label for="mass2">Blå massa [kg]</label>
+                <input id="mass2" type="number" step="0.5" value="15">
+            </div>
+        </p>
+    </body>
+</html>
