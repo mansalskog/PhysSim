@@ -12,7 +12,7 @@ function diffEqn(Q) {
     const R = 3, g = 9.82;
     const k = constants.springConst, L0 = constants.springLength;
     const theta1 = Q[0], theta2 = Q[1];
-    const common = 2*k * (2*R*Math.sin(theta2/2) - L0) * Math.cos(theta2/2);
+    const common = k * (2*R*Math.sin(theta2/2) - L0) * Math.cos(theta2/2);
     const theta1dd = 1/R * (g*Math.cos(theta1) + common/m1);
     const theta2dd = 1/R * (g*Math.cos(theta1+theta2) - common/m2) - theta1dd;
     Qprim = [Q[2], Q[3], theta1dd, theta2dd];
